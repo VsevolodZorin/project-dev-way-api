@@ -33,7 +33,7 @@ export class TelegramService {
     chatId: string = this.options.chatId,
   ) {
     try {
-      let result = `${inputObj.message}\n\n`;
+      let result = `--- ${inputObj.message} ---\n`;
       const keys = Object.keys(inputObj);
       for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
