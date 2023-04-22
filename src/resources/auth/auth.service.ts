@@ -44,16 +44,16 @@ export class AuthService {
   ): Promise<{ user: UserEntity } & { tokenPair: IJwtTokenPair }> {
     const user = await this.userService.create(dto);
 
-    const activationLink = uuid(); // v34fa-asfasf-142saf-sa-asf
-    const apiUrl = this.configService.get('API_URL');
+    // const activationLink = uuid(); // v34fa-asfasf-142saf-sa-asf
+    // const apiUrl = this.configService.get('API_URL');
     // todo activation link on client
-    const link = `${apiUrl}/auth/activate/${activationLink}`;
+    // const link = `${apiUrl}/auth/activate/${activationLink}`;
     // await this.mailService.sendActivationMail(dto.email, link);
 
-    await this.emailActivationService.create({
-      email: user.email,
-      activationLink,
-    });
+    // await this.emailActivationService.create({
+    //   email: user.email,
+    //   activationLink,
+    // });
 
     const tokenPair = await this.jwtService.generateTokenPair(user);
 
