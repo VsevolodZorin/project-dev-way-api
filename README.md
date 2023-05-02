@@ -1,2 +1,1 @@
-docker-compose -f docker-compose.yml -f docker-compose.development.yml up --build
-`
+npm run db:migration:generate -- src/database/migrations/migrationName
