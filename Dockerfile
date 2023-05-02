@@ -1,14 +1,11 @@
-# FROM node:18.13.0-alpine
-FROM node:18.13.0
+FROM node:18.13.0-alpine
 
 WORKDIR /app
 
 EXPOSE 4000
 
-COPY package.json yarn.lock ./
+COPY package*.json ./
 
-RUN yarn install --production=true
+RUN npm install
 
 COPY . .
-
-CMD ["yarn", "start:prod"]
